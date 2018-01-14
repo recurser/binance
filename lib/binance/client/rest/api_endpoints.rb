@@ -1,5 +1,5 @@
 
-module Binance
+module BinanceApi
   module Client
     class REST
       API_ENDPOINTS = {

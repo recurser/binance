@@ -4,7 +4,7 @@ require 'faraday_middleware'
 require_relative 'sign_request_middleware'
 require_relative 'timestamp_request_middleware'
 
-module Binance
+module BinanceApi
   module Client
     class REST
       # Public: A module containing all of the Account API endpoints

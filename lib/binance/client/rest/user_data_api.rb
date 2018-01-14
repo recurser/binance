@@ -2,7 +2,7 @@
 require 'faraday'
 require 'faraday_middleware'
 
-module Binance
+module BinanceApi
   module Client
     class REST
       # Public: A Module containing all of the User Data API endpoints

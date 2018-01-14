@@ -7,7 +7,7 @@ require 'binance/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'binance'
-  spec.version       = Binance::VERSION
+  spec.version       = BinanceApi::VERSION
   spec.authors       = ['Charles Ray Shisler III']
   spec.email         = ['charles@cray.io']
 

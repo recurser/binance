@@ -1,7 +1,7 @@
 
 require 'date'
 
-module Binance
+module BinanceApi
   module Client
     class REST
       # Generate a timestamp in milliseconds and append to query string

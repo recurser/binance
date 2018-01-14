@@ -1,7 +1,7 @@
 
 require 'faye/websocket'
 
-module Binance
+module BinanceApi
   module Client
     # Public: Client with methods mirroring the Binance WebSocket API
     class WebSocket

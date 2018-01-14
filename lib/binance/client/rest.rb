@@ -6,7 +6,7 @@ require_relative 'rest/account_api'
 require_relative 'rest/withdraw_api'
 require_relative 'rest/user_data_api'
 
-module Binance
+module BinanceApi
   module Client
     # Public: Client with methods mirroring the Binance REST APIs
     class REST

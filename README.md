@@ -1,6 +1,6 @@
 # Binance
 
-[![Gem Version](https://badge.fury.io/rb/binance.svg)](https://badge.fury.io/rb/binance) 
+[![Gem Version](https://badge.fury.io/rb/binance.svg)](https://badge.fury.io/rb/binance)
 
 This is an unofficial Ruby wrapper for the Binance exchange REST and WebSocket APIs.
 
@@ -19,7 +19,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install binance
-    
+
 ## Features
 
 #### Current
@@ -51,9 +51,9 @@ Create a new instance of the [REST Client](http://www.rubydoc.info/gems/binance)
 
 ```ruby
 # If you only plan on touching public API endpoints, you can forgo any arguments
-client = Binance::Client::REST.new
+client = BinanceApi::Client::REST.new
 # Otherwise provide an api_key and secret_key as keyword arguments
-client = Binance::Client::REST.new api_key: 'x', secret_key: 'y'
+client = BinanceApi::Client::REST.new api_key: 'x', secret_key: 'y'
 ```
 
 Create various requests:
@@ -64,15 +64,15 @@ client.ping # => {}
 
 # Get kline data
 client.klines symbol: 'NEOETH', interval: '1m', limit: 1
-# => [[1511682480000, "0.08230000", "0.08230000", "0.08230000", "0.08230000", "0.00000000", 
+# => [[1511682480000, "0.08230000", "0.08230000", "0.08230000", "0.08230000", "0.00000000",
 # 1511682539999, "0.00000000", 0, "0.00000000", "0.00000000", "2885926.46000000"]]
 
 # Create an order
-client.create_order symbol: 'XRPETH', side: 'BUY', type: 'LIMIT', 
+client.create_order symbol: 'XRPETH', side: 'BUY', type: 'LIMIT',
   timeInForce: 'GTC', quantity: '100.00000000', price: '0.00055000'
-# => {"symbol"=>"XRPETH", "orderId"=>918248, "clientOrderId"=>"kmUU0i6cMWzq1NElE6ZTdu", 
-# "transactTime"=>1511685028420, "price"=>"0.00055000", "origQty"=>"100.00000000", 
-# "executedQty"=>"100.00000000", "status"=>"FILLED", "timeInForce"=>"GTC", "type"=>"LIMIT", 
+# => {"symbol"=>"XRPETH", "orderId"=>918248, "clientOrderId"=>"kmUU0i6cMWzq1NElE6ZTdu",
+# "transactTime"=>1511685028420, "price"=>"0.00055000", "origQty"=>"100.00000000",
+# "executedQty"=>"100.00000000", "status"=>"FILLED", "timeInForce"=>"GTC", "type"=>"LIMIT",
 # "side"=>"BUY"}
 
 # Get deposit address
@@ -80,7 +80,7 @@ client.deposit_address asset: 'NEO'
 # => {"address"=>"AHXeTWYv8qZQhQ2WNrBza9LHyzdZtFnbaT", "success"=>true, "addressTag"=>"", "asset"=>"NEO"}
 ```
 
-Required and optional parameters, as well as enum values, can currently be found on the [Binance API Page](https://www.binance.com/restapipub.html). Parameters should always be passed to client methods as keyword arguments, with the same capitalization and spelling. 
+Required and optional parameters, as well as enum values, can currently be found on the [Binance API Page](https://www.binance.com/restapipub.html). Parameters should always be passed to client methods as keyword arguments, with the same capitalization and spelling.
 
 #### WebSocket Client
 
@@ -94,7 +94,7 @@ require 'eventmachine'
 Create a new instance of the [WebSocket Client](http://www.rubydoc.info/gems/binance):
 
 ```ruby
-client = Binance::Client::WebSocket.new
+client = BinanceApi::Client::WebSocket.new
 ```
 
 Create various WebSocket streams, wrapping calls inside `EM.run`:
@@ -112,7 +112,7 @@ EM.run do
 
   # Pass a symbol and event handler Hash to connect and process events
   client.agg_trade symbol: 'XRPETH', methods: methods
-  
+
   # kline takes an additional named parameter
   client.kline symbol: 'XRPETH', interval: '1m', methods: methods
 
@@ -127,7 +127,7 @@ EM.run do
                          { type: 'ticker', symbol: 'XRPETH' },
                          { type: 'kline', symbol: 'XRPETH', interval: '1m'},
                          { type: 'depth', symbol: 'XRPETH', level: '5'}],
-               methods: methods 
+               methods: methods
 end
 ```
 
@@ -145,8 +145,8 @@ require 'eventmachine'
 Create a new instance of the [REST Client](http://www.rubydoc.info/gems/binance) and [WebSocket Client](http://www.rubydoc.info/gems/binance):
 
 ```ruby
-rest  = Binance::Client::REST.new api_key: 'x'
-ws    = Binance::Client::WebSocket.new
+rest  = BinanceApi::Client::REST.new api_key: 'x'
+ws    = BinanceApi::Client::WebSocket.new
 ```
 
 Request a listen key from the REST API, and then create a WebSocket stream using it.
